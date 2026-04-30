@@ -7,7 +7,8 @@ Author: Expert Python Full-Stack Developer
 import streamlit as st
 import pandas as pd
 import numpy as np
-import random
+import randomstreamlit
+
 import string
 from datetime import datetime, time, timedelta
 import pydeck as pdk
@@ -92,7 +93,7 @@ def inject_custom_css():
         .stButton > button {
             background: linear-gradient(135deg, #39b54a 0%, #2d9a3a 100%);
             color: white;
-            border: none;
+            border: None;
             border-radius: 12px;
             padding: 0.75rem 2rem;
             font-weight: 600;

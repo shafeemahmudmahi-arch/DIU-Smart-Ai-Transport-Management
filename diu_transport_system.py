@@ -548,7 +548,7 @@ def student_dashboard():
                 layers=[layer, text_layer],
                 initial_view_state=view_state,
                 tooltip=tooltip,
-                map_style='mapbox://styles/mapbox/dark-v10',
+                map_style=none,
             ))
             
             # Bus details table
@@ -749,7 +749,7 @@ def admin_dashboard():
                 layers=[layer, text_layer],
                 initial_view_state=view_state,
                 tooltip=tooltip,
-                map_style='mapbox://styles/mapbox/dark-v10',
+                map_style=none,
             ))
             
             # Fleet status by route

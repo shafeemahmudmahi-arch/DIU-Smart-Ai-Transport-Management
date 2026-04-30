@@ -548,7 +548,7 @@ def student_dashboard():
                 layers=[layer, text_layer],
                 initial_view_state=view_state,
                 tooltip=tooltip,
-                map_style=none,
+                map_style=None,
             ))
             
             # Bus details table

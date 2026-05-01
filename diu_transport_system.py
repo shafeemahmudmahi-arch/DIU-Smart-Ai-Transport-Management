@@ -2,7 +2,7 @@
 """
 ╔══════════════════════════════════════════════════════════════╗
 ║      DIU Smart Transport Management System v2.0              ║
-║      Daffodil International University                        ║
+║      Daffodil International University                       ║
 ║      Full-Featured Demo — All Panels Included                ║
 ╚══════════════════════════════════════════════════════════════╝
 """
@@ -416,16 +416,17 @@ def generate_drivers():
     buses_df = generate_buses()
     driver_rows = []
     for _, b in buses_df.iterrows():
-        trips_month = random.Random(hash(b["driver_id"])).randint(18,28)
-        overspeed   = random.Random(hash(b["driver_id"])+"ov").randint(0,5)
-        on_time_pct = round(random.Random(hash(b["driver_id"])+"ot").uniform(75,99),1)
+        driver_str_id = str(b["driver_id"])
+        trips_month = random.Random(driver_str_id).randint(18,28)
+        overspeed   = random.Random(driver_str_id + "ov").randint(0,5)
+        on_time_pct = round(random.Random(driver_str_id + "ot").uniform(75,99),1)
         driver_rows.append({
             "driver_id":b["driver_id"],"name":b["driver_name"],
             "bus_number":b["bus_number"],"route":b["route"],
             "trips_this_month":trips_month,"overspeed_incidents":overspeed,
             "on_time_pct":on_time_pct,"status":b["status"],
-            "license_no":f"DHA-{random.Random(hash(b['driver_id'])).randint(100000,999999)}",
-            "experience_yrs":random.Random(hash(b["driver_id"])+"exp").randint(2,20),
+            "license_no":f"DHA-{random.Random(driver_str_id).randint(100000,999999)}",
+            "experience_yrs":random.Random(driver_str_id + "exp").randint(2,20),
         })
     return pd.DataFrame(driver_rows)
 
@@ -1558,7 +1559,7 @@ def show_driver():
     with col_a:
         st.markdown('<div class="sec-title">🪪 Student ID Verification</div>', unsafe_allow_html=True)
         id_input = st.text_input("Scan / Enter Student ID", placeholder="e.g. 252-14-087",
-                                  key="driver_id_input")
+                                 key="driver_id_input")
         check_btn = st.button("🔍 Verify ID", use_container_width=True)
 
         if check_btn and id_input:
